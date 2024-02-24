@@ -27,11 +27,11 @@ const FooterChat = ({ setMessages, messages, socket, usuarioSeleccionado, setUsu
         if(inputMessage.trim() != ""){
             let obj_message = {};
             const date = new Date();
-            let day = date.getDate();
-            let month = date.getMonth() + 1;
+            let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+            let month = (date.getMonth() + 1) < 10 ? `0${(date.getMonth() + 1)}` : (date.getMonth() + 1);
             let year = date.getFullYear();
-            let hour = date.getHours();
-            let minute = date.getMinutes();
+            let hour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+            let minute = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
             let currentDate = `${year}-${month}-${day} ${hour}:${minute}`;
 
             let listado_usuarios = localStorage.getItem("listado_usuarios") || "[]";
